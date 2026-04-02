@@ -1,0 +1,141 @@
+{
+  "results": {
+    "astar": [
+      {
+        "path_length": 2.0,
+        "straight_line": 1.4142135623730951,
+        "path_efficiency": 0.7071067811865476,
+        "total_time": 0.0020585060119628906,
+        "avg_velocity": 0.0,
+        "final_distance": 0.0,
+        "collision_count": 0,
+        "smoothness": 0.0,
+        "goal_reached": true,
+        "collision_occurred": false
+      },
+      {
+        "path_length": 3.0,
+        "straight_line": 2.23606797749979,
+        "path_efficiency": 0.7453559924999299,
+        "total_time": 0.02445697784423828,
+        "avg_velocity": 0.0,
+        "final_distance": 0.0,
+        "collision_count": 0,
+        "smoothness": 0.0,
+        "goal_reached": true,
+        "collision_occurred": false
+      },
+      {
+        "path_length": 4.200000000000003,
+        "straight_line": 2.1213203435596424,
+        "path_efficiency": 0.505076272276105,
+        "total_time": 0.012656450271606445,
+        "avg_velocity": 0.0,
+        "final_distance": 0.0,
+        "collision_count": 0,
+        "smoothness": 0.0,
+        "goal_reached": true,
+        "collision_occurred": false
+      }
+    ],
+    "dijkstra": [
+      {
+        "path_length": 2.0,
+        "straight_line": 1.4142135623730951,
+        "path_efficiency": 0.7071067811865476,
+        "total_time": 0.016680240631103516,
+        "avg_velocity": 0.0,
+        "final_distance": 0.0,
+        "collision_count": 0,
+        "smoothness": 0.0,
+        "goal_reached": true,
+        "collision_occurred": false
+      },
+      {
+        "path_length": 3.0,
+        "straight_line": 2.23606797749979,
+        "path_efficiency": 0.7453559924999299,
+        "total_time": 0.0466306209564209,
+        "avg_velocity": 0.0,
+        "final_distance": 0.0,
+        "collision_count": 0,
+        "smoothness": 0.0,
+        "goal_reached": true,
+        "collision_occurred": false
+      },
+      {
+        "path_length": 4.200000000000003,
+        "straight_line": 2.1213203435596424,
+        "path_efficiency": 0.505076272276105,
+        "total_time": 0.17432928085327148,
+        "avg_velocity": 0.0,
+        "final_distance": 0.0,
+        "collision_count": 0,
+        "smoothness": 0.0,
+        "goal_reached": true,
+        "collision_occurred": false
+      }
+    ],
+    "greedy": [
+      {
+        "path_length": 2.0,
+        "straight_line": 1.4142135623730951,
+        "path_efficiency": 0.7071067811865476,
+        "total_time": 0.00035190582275390625,
+        "avg_velocity": 0.0,
+        "final_distance": 0.0,
+        "collision_count": 0,
+        "smoothness": 0.0,
+        "goal_reached": true,
+        "collision_occurred": false
+      },
+      {
+        "path_length": 3.0,
+        "straight_line": 2.23606797749979,
+        "path_efficiency": 0.7453559924999299,
+        "total_time": 0.0008466243743896484,
+        "avg_velocity": 0.0,
+        "final_distance": 0.0,
+        "collision_count": 0,
+        "smoothness": 0.0,
+        "goal_reached": true,
+        "collision_occurred": false
+      },
+      {
+        "path_length": 5.900000000000002,
+        "straight_line": 2.1213203435596424,
+        "path_efficiency": 0.35954582094231213,
+        "total_time": 33.60175085067749,
+        "avg_velocity": 0.0,
+        "final_distance": 0.0,
+        "collision_count": 0,
+        "smoothness": 0.0,
+        "goal_reached": true,
+        "collision_occurred": false
+      }
+    ]
+  },
+  "stats": {
+    "astar": {
+      "avg_path": 3.0666666666666678,
+      "avg_efficiency": 0.6525130153208608,
+      "avg_time": 0.013057311375935873,
+      "success_rate": 1.0,
+      "collision_rate": 0.0
+    },
+    "dijkstra": {
+      "avg_path": 3.0666666666666678,
+      "avg_efficiency": 0.6525130153208608,
+      "avg_time": 0.07921338081359863,
+      "success_rate": 1.0,
+      "collision_rate": 0.0
+    },
+    "greedy": {
+      "avg_path": 3.633333333333334,
+      "avg_efficiency": 0.6040028648762632,
+      "avg_time": 11.200983126958212,
+      "success_rate": 1.0,
+      "collision_rate": 0.0
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Arguments -->
+  <arg name="world_file" default="$(find custom_worlds)/worlds/labyrinthe.world"/>
+  <arg name="model" default="burger" doc="TurtleBot3 model, e.g. burger, waffle, waffle_pi"/>
+  <arg name="open_rviz" default="true"/>
+  <arg name="enable_map_saver" default="false"/>
+  <arg name="x_pos" default="-2.0"/>
+  <arg name="y_pos" default="-0.5"/>
+  <arg name="z_pos" default="0.0"/>
+
+  <!-- Gazebo world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_file)"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <!-- Robot spawn -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"
+        args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description"/>
+
+  <!-- SLAM + exploration + navigation -->
+  <!-- SLAM gmapping -->
+  <include file="$(find turtlebot3_slam)/launch/turtlebot3_slam.launch">
+    <arg name="slam_methods" value="gmapping"/>
+    <arg name="model" value="$(arg model)"/>
+  </include>
+
+  <!-- Navigation move_base -->
+  <include file="$(find turtlebot3_navigation)/launch/move_base.launch">
+    <arg name="model" value="$(arg model)"/>
+  </include>
+
+  <!-- Exploration automatique -->
+  <include file="$(find explore_lite)/launch/explore.launch"/>
+
+  <!-- RViz optionnel -->
+  <group if="$(arg open_rviz)">
+    <node pkg="rviz" type="rviz" name="rviz_exploration"
+          args="-d $(find turtlebot3_slam)/rviz/turtlebot3_slam.rviz"/>
+  </group>
+
+  <!-- Map saver (optionnel : activez avec enable_map_saver:=true) -->
+  <group if="$(arg enable_map_saver)">
+    <node pkg="map_server" type="map_saver" name="map_saver" respawn="false" output="screen"
+          args="-f $(env HOME)/labyrinthe_map"/>
+  </group>
+
+</launch>

@@ -1,0 +1,7 @@
+digraph G {
+"odom" -> "base_footprint"[label="Broadcaster: /gazebo\nAverage rate: 30.273 Hz\nMost recent transform: 455.540 ( 0.014 sec old)\nBuffer length: 3.039 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 455.554"[ shape=plaintext ] ;
+ }->"odom";
+}
